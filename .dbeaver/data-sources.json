@@ -1,16 +1,16 @@
 {
 	"folders": {},
 	"connections": {
-		"oracle_thin-19282976091-2bad55e0cb798f1d": {
+		"oracle_thin-1928850a2a5-11b7a05a7602f0fb": {
 			"provider": "oracle",
 			"driver": "oracle_thin",
-			"name": "FREEPDB1",
+			"name": "ORCL",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
 				"port": "1521",
-				"database": "FREEPDB1",
-				"url": "jdbc:oracle:thin:@//localhost:1521/FREEPDB1",
+				"database": "ORCL",
+				"url": "jdbc:oracle:thin:@//localhost:1521/ORCL",
 				"configurationType": "MANUAL",
 				"type": "dev",
 				"closeIdleConnection": true,
