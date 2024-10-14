@@ -499,11 +499,11 @@
     </hop>
     <hop>
       <from>Select values</from>
-      <to>Filter rows - Hollywod</to>
+      <to>Filter rows - Hollywood</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows - Hollywod</from>
+      <from>Filter rows - Hollywood</from>
       <to>Text file output-Hollywood</to>
       <enabled>Y</enabled>
     </hop>
@@ -513,7 +513,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows - Hollywod</from>
+      <from>Filter rows - Hollywood</from>
       <to>Filter rows - Pacific</to>
       <enabled>Y</enabled>
     </hop>
@@ -1036,7 +1036,7 @@
     </GUI>
   </step>
   <step>
-    <name>Filter rows - Hollywod</name>
+    <name>Filter rows - Hollywood</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
