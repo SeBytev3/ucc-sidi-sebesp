@@ -4,4 +4,10 @@
 
 *.zip
 *.bak
+*.jar
+
 .dbeaver/credentials-config.json
+build
+target
+
+.vscode/
