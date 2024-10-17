@@ -12,4 +12,4 @@ target
 
 .vscode/
 
-app-cliente-pyhton/venv/
+app-cliente-pyhton/venv/*
