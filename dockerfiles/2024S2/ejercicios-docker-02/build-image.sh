@@ -1,0 +1,1 @@
+docker build -t sebyte/ejercicio-docker-02:latest .
