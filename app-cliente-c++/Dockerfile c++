@@ -1,0 +1,6 @@
+FROM gcc:latest
+WORKDIR /app
+COPY src/* /app
+RUN apt-get update && apt-get install -y libpqxx-dev
+RUN g++ -o application main.cpp -lpqxx -lpq
+CMD ["./application"]

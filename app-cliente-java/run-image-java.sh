@@ -1,0 +1,1 @@
+docker run --rm sebyte/app-cliente-java
