@@ -1,1 +1,1 @@
-docker run --rm sebyte/app-cliente-python
+docker run --name sebyte-cliente-python --network challenge-postgres --rm sebyte/app-cliente-python

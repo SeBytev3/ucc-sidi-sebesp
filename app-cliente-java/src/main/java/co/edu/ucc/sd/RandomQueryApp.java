@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RandomQueryApp {
 
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String DB_URL = "jdbc:postgresql://postgres-ppal:5432/postgres";
     private static final String USER = "postgres";
     private static final String PASS = "postgres";
 

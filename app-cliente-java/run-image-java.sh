@@ -1,1 +1,1 @@
-docker run --rm sebyte/app-cliente-java
+docker run --name sebyte-cliente-java --network challenge-postgres --rm sebyte/app-cliente-java
