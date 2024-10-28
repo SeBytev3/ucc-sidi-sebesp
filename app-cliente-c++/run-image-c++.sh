@@ -1,1 +1,1 @@
-docker run --rm sebyte/app-cliente-cpp
+docker run --network challenge-postgres --rm sebyte/app-cliente-cpp
