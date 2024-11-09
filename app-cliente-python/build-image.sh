@@ -1,1 +1,1 @@
-docker build -t sebyte/app-cliente-python-slim:latest .
+docker build -t sebyte/app-cliente-python:latest .
