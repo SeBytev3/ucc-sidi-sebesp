@@ -5,8 +5,7 @@ import datetime
 import psycopg2
 from colorama import Fore, Style, init
 
-#Inicializar colorama
-init(autoreset=True)
+init(autoreset=True) #Inicializar colorama
 
 #Definir tipos de vehículos y tipos de vías
 vehiculos = ["Automovil 🚗", "Moto 🛵", "Bus 🚌", "Taxi 🚕", "Camión 🚚", "Bicicleta 🚲"]
@@ -93,7 +92,7 @@ while running:
     informacion = generar_info_trafico()
     imprimir_info_trafico(informacion)
     insertar_datos_bd(conn, informacion)
-    tiempo_espera = random.randint(0, 5)
+    tiempo_espera = random.randint(5, 10)
     for _ in range(tiempo_espera):
         if not running:
             break

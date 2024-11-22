@@ -11,11 +11,22 @@ services:
     volumes:
       - postgres_ppal_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+    command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - proyecto-final
 
   db-pg-slave:
     container_name: proyectof-postgres-slave
+    depends_on:
+      db-pg-ppal:
+          condition: service_healthy
     image: postgres:latest
     environment:
       POSTGRES_DB: proyectofslave
@@ -25,7 +36,13 @@ services:
       - "5433:5432"
     volumes:
       - postgres_slave_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init-slave.sh:/docker-entrypoint-initdb.d/init-slave.sh
+    command: postgres -c 'config_file=/var/lib/postgresql/data/postgresql.conf'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - proyecto-final
 
@@ -35,7 +52,8 @@ services:
       dockerfile: Dockerfile-Personas
     container_name: personas-service
     depends_on:
-      - db-pg-ppal
+      db-pg-ppal:
+          condition: service_healthy
     environment:
       DB_HOST: db-pg-ppal
       DB_NAME: proyectofppal
@@ -50,7 +68,8 @@ services:
       dockerfile: Dockerfile-Trafico
     container_name: trafico-service
     depends_on:
-      - db-pg-ppal
+      db-pg-ppal:
+          condition: service_healthy
     environment:
       DB_HOST: db-pg-ppal
       DB_NAME: proyectofppal

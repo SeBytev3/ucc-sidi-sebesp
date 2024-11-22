@@ -41,6 +41,27 @@
 				},
 				"auth-model": "native"
 			}
+		},
+		"postgres-jdbc-193517544f9-4697d362c87e9510": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "proyectofslave",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5433",
+				"database": "proyectofppal",
+				"url": "jdbc:postgresql://localhost:5433/proyectofppal",
+				"configurationType": "MANUAL",
+				"home": "postgresql_client",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-chosen-role@": ""
+				},
+				"auth-model": "native"
+			}
 		}
 	},
 	"connection-types": {
