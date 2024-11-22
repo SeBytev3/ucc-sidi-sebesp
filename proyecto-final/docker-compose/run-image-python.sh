@@ -1,0 +1,1 @@
+docker run -it --name sebyte-generadortraficopy --network proyecto-final --rm sebyte/generadortraficopy

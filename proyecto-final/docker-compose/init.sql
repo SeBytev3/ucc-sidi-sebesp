@@ -1,0 +1,17 @@
+CREATE TABLE tabla1 (
+    id SERIAL PRIMARY KEY,
+    Codigo INTEGER NOT NULL,
+    Tipo_de_Vehiculo VARCHAR(20) NOT NULL,
+    Velocidad INTEGER NOT NULL,
+    Hora TIME NOT NULL,
+    Via VARCHAR(11) NOT NULL,
+    Latitud NUMERIC(9,6) NOT NULL,
+    Longitud NUMERIC(9,6) NOT NULL
+);
+
+CREATE TABLE tabla2 (
+    id SERIAL PRIMARY KEY,
+    numero_identidad INTEGER NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL
+);

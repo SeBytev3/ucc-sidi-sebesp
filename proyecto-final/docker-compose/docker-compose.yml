@@ -1,0 +1,67 @@
+services:
+  db-pg-ppal:
+    container_name: proyectof-postgres-ppal
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: proyectofppal
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_ppal_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - proyecto-final
+
+  db-pg-slave:
+    container_name: proyectof-postgres-slave
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: proyectofslave
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_slave_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - proyecto-final
+
+  personas-service:
+    build:
+      context: .
+      dockerfile: Dockerfile-Personas
+    container_name: personas-service
+    depends_on:
+      - db-pg-ppal
+    environment:
+      DB_HOST: db-pg-ppal
+      DB_NAME: proyectofppal
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    networks:
+      - proyecto-final
+
+  trafico-service:
+    build:
+      context: .
+      dockerfile: Dockerfile-Trafico
+    container_name: trafico-service
+    depends_on:
+      - db-pg-ppal
+    environment:
+      DB_HOST: db-pg-ppal
+      DB_NAME: proyectofppal
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    networks:
+      - proyecto-final
+
+networks:
+  proyecto-final:
+
+volumes:
+  postgres_ppal_data:
+  postgres_slave_data:
