@@ -45,11 +45,11 @@ def insertar_datos_bd(conn, registro):
 
 if __name__ == "__main__":
     print("Generando datos automáticamente cada 5 segundos. Presiona Ctrl+C para detener.")
-    conn = psycopg2.connect(          # Conexión a la base de datos
+    conn = psycopg2.connect(
         host="db-pg-ppal",         # Nombre del servicio en docker-compose.yml
-        database="proyectofppal",     # Nombre de la base de datos
-        user="postgres",              # Usuario de la base de datos
-        password="postgres"           # Contraseña de la base de datos
+        database="proyectofppal",
+        user="postgres",
+        password="postgres"
     )
 
     try:
@@ -61,4 +61,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\nGeneración de datos detenida.")
     finally:
-        conn.close()                   # Cerrar la conexión al finalizar
+        conn.close()

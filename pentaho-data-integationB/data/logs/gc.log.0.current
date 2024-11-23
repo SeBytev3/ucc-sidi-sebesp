@@ -1,0 +1,49 @@
+Java HotSpot(TM) 64-Bit Server VM (25.144-b01) for linux-amd64 JRE (1.8.0_144-b01), built on Jul 21 2017 21:57:33 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+Memory: 4k page, physical 7979044k(4185872k free), swap 2097152k(2097152k free)
+CommandLine flags: -XX:ErrorFile=./logs/jvm_error.log -XX:GCLogFileSize=67108864 -XX:InitialHeapSize=2147483648 -XX:MaxHeapSize=2147483648 -XX:NumberOfGCLogFiles=2 -XX:OnOutOfMemoryError=/usr/bin/oom_killer -XX:+PrintGC -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC -XX:+PrintStringDeduplicationStatistics -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseG1GC -XX:+UseGCLogFileRotation -XX:+UseStringDeduplication 
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 2097152K, used 104448K [0x0000000080000000, 0x0000000080104000, 0x0000000100000000)
+  region size 1024K, 102 young (104448K), 0 survivors (0K)
+ Metaspace       used 13620K, capacity 13846K, committed 14208K, reserved 1060864K
+  class space    used 1693K, capacity 1798K, committed 1920K, reserved 1048576K
+2024-11-22T08:09:09.366-0800: 0.807: [GC pause (G1 Evacuation Pause) (young), 0.0129000 secs]
+   [Parallel Time: 5.9 ms, GC Workers: 8]
+      [GC Worker Start (ms): Min: 807.4, Avg: 807.7, Max: 808.0, Diff: 0.6]
+      [Ext Root Scanning (ms): Min: 0.0, Avg: 0.9, Max: 4.2, Diff: 4.2, Sum: 7.3]
+      [Update RS (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+         [Processed Buffers: Min: 0, Avg: 0.0, Max: 0, Diff: 0, Sum: 0]
+      [Scan RS (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.1]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.2, Max: 1.7, Diff: 1.7, Sum: 2.0]
+      [Object Copy (ms): Min: 0.9, Avg: 3.6, Max: 4.5, Diff: 3.6, Sum: 28.4]
+      [Termination (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.3]
+         [Termination Attempts: Min: 1, Avg: 71.0, Max: 93, Diff: 92, Sum: 568]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.1]
+      [GC Worker Total (ms): Min: 4.5, Avg: 4.8, Max: 5.1, Diff: 0.6, Sum: 38.3]
+      [GC Worker End (ms): Min: 812.5, Avg: 812.5, Max: 812.5, Diff: 0.0]
+   [Code Root Fixup: 0.1 ms]
+   [Code Root Purge: 0.0 ms]
+   [String Dedup Fixup: 1.0 ms, GC Workers: 8]
+      [Queue Fixup (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+      [Table Fixup (ms): Min: 0.0, Avg: 0.0, Max: 0.3, Diff: 0.3, Sum: 0.3]
+   [Clear CT: 0.7 ms]
+   [Other: 5.2 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 4.1 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 0.7 ms]
+      [Humongous Register: 0.1 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.1 ms]
+   [Eden: 102.0M(102.0M)->0.0B(103.0M) Survivors: 0.0B->9216.0K Heap: 102.0M(2048.0M)->9176.9K(2048.0M)]
+Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 2097152K, used 9176K [0x0000000080000000, 0x0000000080104000, 0x0000000100000000)
+  region size 1024K, 9 young (9216K), 9 survivors (9216K)
+ Metaspace       used 13620K, capacity 13846K, committed 14208K, reserved 1060864K
+  class space    used 1693K, capacity 1798K, committed 1920K, reserved 1048576K
+}
+ [Times: user=0.04 sys=0.01, real=0.01 secs] 
+Heap
+ garbage-first heap   total 2097152K, used 15320K [0x0000000080000000, 0x0000000080104000, 0x0000000100000000)
+  region size 1024K, 16 young (16384K), 9 survivors (9216K)
+ Metaspace       used 14987K, capacity 15298K, committed 15616K, reserved 1062912K
+  class space    used 1872K, capacity 1998K, committed 2048K, reserved 1048576K

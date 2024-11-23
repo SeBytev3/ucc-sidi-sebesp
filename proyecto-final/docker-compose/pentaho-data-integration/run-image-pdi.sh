@@ -1,0 +1,1 @@
+docker run --name sebyte-pdi-10-2 --network challenge-postgres --rm sebyte/pdi-10-2:latest

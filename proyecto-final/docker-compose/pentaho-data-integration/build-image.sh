@@ -1,0 +1,1 @@
+docker build -t sebyte/pdi-10-2:latest -f Dockerfile-Pdi .
