@@ -1,0 +1,8 @@
+FROM openjdk:21-jdk
+WORKDIR /app
+COPY src /app/src
+COPY libs /app/libs
+COPY resources /app/resources
+RUN javac -d build src/main/java/co/edu/ucc/sd/*.java && \
+    jar cfm app-cliente-java.jar resources/META-INF/MANIFEST.MF -C build/ .
+CMD ["java", "-cp", "libs/postgresql-42.7.4.jar:app-cliente-java.jar", "co.edu.ucc.sd.RandomQueryApp"]

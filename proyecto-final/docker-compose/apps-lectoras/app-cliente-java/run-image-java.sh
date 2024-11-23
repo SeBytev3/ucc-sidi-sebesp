@@ -1,0 +1,1 @@
+docker run --name sebyte-cliente-java --network proyecto-final --rm sebyte/app-cliente-java

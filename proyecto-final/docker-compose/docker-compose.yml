@@ -111,6 +111,31 @@ services:
     networks:
       - proyecto-final
 
+  app-cliente-java:
+    build:
+      context: ./apps-lectoras/app-cliente-java
+      dockerfile: Dockerfile-AppClienteJava
+    container_name: app-cliente-java
+    depends_on:
+      db-pg-ppal:
+          condition: service_healthy
+    environment:
+      DB_HOST: db-pg-ppal
+      DB_NAME: proyectofppal
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    networks:
+      - proyecto-final
+
+  app-cliente-python:
+    build: ./apps-lectoras/app-cliente-python
+    depends_on:
+      - db-pg-slave
+    environment:
+      DB_URL: "dbname='proyectofslave' user='postgres' host='db-pg-slave' password='postgres'"
+    networks:
+      - proyecto-final
+
 networks:
   proyecto-final:
 
