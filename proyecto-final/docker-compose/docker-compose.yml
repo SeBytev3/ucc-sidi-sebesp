@@ -78,6 +78,39 @@ services:
     networks:
       - proyecto-final
 
+  oracle:
+    image: gvenzl/oracle-free:latest-faststart
+    environment:
+      ORACLE_RANDOM_PASSWORD: false
+      ORACLE_DATABASE: ORCLDB
+      APP_USER: ETL
+      APP_USER_PASSWORD: ETL
+      ORACLE_DISABLE_ASYNCH_IO: true
+      ORACLE_ENABLE_XDB: true
+    ports:
+      - "1521:1521"
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - proyecto-final
+
+  pentaho-data-integration:
+    image: sebyte/pdi-10-2:latest
+    container_name: pentaho-di
+    depends_on:
+      oracle:
+          condition: service_healthy
+    environment:
+      PENTAHO_USER: sducc
+      PENTAHO_PASSWORD: sducc
+    ports:
+      - "2335:2335"
+    networks:
+      - proyecto-final
+
 networks:
   proyecto-final:
 

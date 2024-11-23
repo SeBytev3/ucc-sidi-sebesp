@@ -85,4 +85,4 @@ RUN wget -O /opt/pentaho/client-tools/data-integration/lib/postgresql-42.7.4.jar
     wget -O /opt/pentaho/client-tools/data-integration/lib/ojdbc8.jar https://download.oracle.com/otn-pub/otn_software/jdbc/236/ojdbc8.jar
 
 # Default command
-CMD ["bash"]
+CMD ["tail", "-f", "/dev/null"]
