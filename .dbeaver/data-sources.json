@@ -35,8 +35,7 @@
 					"oracle.meta-search-in-synonyms": "false",
 					"oracle.show-date-as-date": "false"
 				},
-				"auth-model": "oracle_native",
-				"handlers": {}
+				"auth-model": "oracle_native"
 			}
 		},
 		"postgres-jdbc-19351595133-38ef74bbd9f90a95": {
