@@ -1,5 +1,7 @@
 services:
   web:
     image: nginx:latest
+    deploy:
+      replicas: 3
     ports:
-      - "8080:80"
+      - "8082:8081"

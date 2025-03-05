@@ -2,19 +2,22 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_USER: miusuario
-      POSTGRES_PASSWORD: mipassword
-      POSTGRES_DB: midb
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
-
   web:
     image: python:3.13.2-slim
     volumes:
       - ./app:/app
     working_dir: /app
-    command: sh -c "pip install -r requirements.txt && python app.py"
+    command: /bin/sh -c "pip install --no-cache-dir flask psycopg2-binary && python app.py"
     ports:
       - "5000:5000"
     depends_on:
       - db
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
