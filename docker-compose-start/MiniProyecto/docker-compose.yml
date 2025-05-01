@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: banco_postgres
+    restart: always
+    env_file: .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - banco_data:/var/lib/postgresql/data
+
+  simulador:
+    build: ./simulador
+    container_name: banco_simulador
+    depends_on:
+      - db
+    entrypoint: ["sh", "-c", "sleep 5 && python simulador.py"]
+    environment:
+      DB_HOST: db
+      DB_USER: mi_usuario
+      DB_PASS: mi_clave
+      DB_NAME: banco
+      TIEMPO_EJECUCION: 60  # en segundos
+
+volumes:
+  banco_data:
