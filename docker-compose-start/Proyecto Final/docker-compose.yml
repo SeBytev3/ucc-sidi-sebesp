@@ -1,0 +1,52 @@
+services:
+  postgres:
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: prestamos_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - fintech_network
+
+  app:
+    build: ./app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: prestamos_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    depends_on:
+      - postgres
+    networks:
+      - fintech_network
+    ports:
+      - "5000:5000"
+
+  backup:
+    build:
+      context: ./backup
+      dockerfile: Dockerfile
+    container_name: backup-service
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: prestamos_db
+      POSTGRES_HOST: postgres
+    volumes:
+      - ./respaldo:/respaldo  # Volumen para almacenar los respaldos
+    entrypoint: ["/cron.sh"]
+    networks:
+      - fintech_network
+
+volumes:
+  postgres_data:
+
+networks:
+  fintech_network:
+    driver: bridge
